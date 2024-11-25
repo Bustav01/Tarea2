@@ -1,0 +1,2 @@
+IMPORTANTE: Antes de iniciar el sitio, ejecutar setup_admin.py
+Esto, con el motivo de manejar la base de datos sin tener que interactuar con la página.
