@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+    <div class="home-container">
+        <a class="home-button" id="btnEjercicio1" href="{{ url_for('app_routes.ej1') }}">Ejercicio 1</a>
+        <a class="home-button" id="btnEjercicio2" href="{{ url_for('app_routes.ej2') }}">Ejercicio 2</a>
+    </div>
+{% endblock %}

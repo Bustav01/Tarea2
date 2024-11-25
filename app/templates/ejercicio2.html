@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Inicio de sesión{% endblock %}
+{% block content %}
+    <div class="container">
+        <h2>Inicio de sesión</h2>
+        <form novalidate action="{{ url_for('app_routes.ej2') }}" method="post">
+            <label for="usuario">Ingresa tu nombre</label>
+            <input class="inputCampo" type="text" id="usuario" name="usuario"
+                value="{{ datos['usuario'] }}">
+            <br><br>
+
+            <label for="password">Ingresa tu contraseña</label>
+            <input class="inputCampo" type="password" id="password" name="password"
+                value="{{ datos['password'] }}">
+            <br><br>
+
+            <input class="btn-submit" type="submit" value="Verificar" >
+        </form>
+        <!-- Errores: -->
+        <p id="msgError" style="color: red"></p>
+        {% if errores %}
+            <ul id="msgError" style="color: red;">
+                {% for error in errores %}
+                    <li >{{ errore }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if mensaje %}
+            <p class="resultado">{{ mensaje }}</p>
+        {% endif %}
+    </div>
+{% endblock %}

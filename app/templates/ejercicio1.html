@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Calculo de compras{% endblock %}
+{% block content %}
+    <div class="container">
+        <h2>Calculo de compras</h2>
+        <form novalidate action="{{ url_for('app_routes.ej1') }}" method="post">
+            <label for="nombre">Ingresa tu nombre</label>
+            <input class="inputCampo" type="text" id="nombre" name="nombre"
+                value="{{ datos['nombre'] }}">
+            <br><br>
+
+            <label for="edad">Ingresa tu edad</label>
+            <input class="inputCampo" type="number" id="edad" name="edad" min="1"
+                value="{{ datos['edad'] }}">
+            <br><br>
+
+            <label for="tarros">Ingresa la cantidad de tarros de pintura a comprar</label>
+            <input class="inputCampo" type="number" id="tarros" name="tarros" min="1"
+                value="{{ datos['tarros'] }}">
+            <br><br>
+
+            <input class="btn-submit" type="submit" value="Calcular" >
+        </form>
+        <!-- Errores: -->
+        <p id="msgError" style="color: red"></p>
+
+        {% if errores %}
+            <ul id="msgError" style="color: red;">
+                {% for error in errores %}
+                    <li >{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if resultado is not none %}
+            {% for clave, valor in resultado.items() %}
+                <p class="resultado">{{ clave }}:{{ valor }}</p>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+{% endblock %}
